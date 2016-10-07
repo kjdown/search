@@ -1,0 +1,22 @@
+
+ public class AnalyzerDemo{
+	 private static final String[] examples={
+		 "中华人民共和国","谭翔伟是个帅哥","今天天气真好","平时分高"
+	 };
+	 public static void main(String[] args)throws IOException{
+		String[] strings=examples;
+		for(String text:strings){
+			analyze(text);
+		}
+	 }
+	 private static void analyze(String text)throws IOException{
+		 System.out.println("Analyzeing\""+text+"\"");
+	 for (Analyzer analyzer:analyzers){
+		 String name=analyzer.getClass().getSimpleName();
+		 System.out.println(""+name+":");
+		 System.out.println("  ");
+		 AnalyzerUtils.displayTokens(analyzer,text);
+		 System.out.println("\n");
+	 }
+	 }
+ }
